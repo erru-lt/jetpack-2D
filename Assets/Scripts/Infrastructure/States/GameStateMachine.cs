@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Infrastructure.States.Interfaces;
+﻿using Assets.Scripts.Infrastructure.Services.ProgressService;
+using Assets.Scripts.Infrastructure.Services.SaveLoadService;
+using Assets.Scripts.Infrastructure.States.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -6,16 +8,18 @@ namespace Assets.Scripts.Infrastructure.States
 {
     public class GameStateMachine
     {
-
         public Dictionary<Type, IExitableState> _states;
 
         private IExitableState _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader)
+        public GameStateMachine(SceneLoader sceneLoader, AllServices services)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader)
+                [typeof(BootstrapState)] = new BootstrapState(this, services, sceneLoader),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Service<IProgressService>(), services.Service<ISaveLoadService>()),
+                [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader),
+                [typeof(LoadLevelState)] = new LoadLevelState(sceneLoader),
             };
         }
 

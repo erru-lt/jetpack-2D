@@ -7,7 +7,6 @@ namespace Assets.Scripts.Infrastructure
 {
     public class SceneLoader
     {
-
         private ICoroutineRunner _coroutineRunner;
 
         public SceneLoader(ICoroutineRunner coroutineRunner) =>

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
 {
-
     private Game _game;
 
     private void Awake()
