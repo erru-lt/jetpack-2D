@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.GameLogic;
+using UnityEngine;
 
 namespace Assets.Scripts.Enemy
 {
@@ -6,24 +7,24 @@ namespace Assets.Scripts.Enemy
     public class EnemyDeath : MonoBehaviour
     {
         [SerializeField] private EnemyHealth _enemyHealth;
-        [SerializeField] private GameObject _dieFx;
-        private void Start()
-        {
+        [SerializeField] private FX _deathFx;
+
+        private void Start() => 
             _enemyHealth.HealthChanged += OnHealthChanged;
-        }
 
         private void OnHealthChanged()
         {
             if (_enemyHealth.CurrentHealth <= 0)
             {
                 Die();
+                SpawnFx();
             }
         }
 
-        private void Die()
-        {
-            Instantiate(_dieFx, transform.position, Quaternion.identity);
+        private void Die() => 
             Destroy(gameObject);
-        }
+
+        private void SpawnFx() => 
+            _deathFx.SpawnFx(transform.position);
     }
 }

@@ -148,6 +148,8 @@ GameObject:
   - component: {fileID: 2732376926398924101}
   - component: {fileID: 152040130382034454}
   - component: {fileID: 370924589189412253}
+  - component: {fileID: 7364104946329466211}
+  - component: {fileID: 4108842737778034374}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Untagged
@@ -300,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce4148d4f57c9488dbb7aff68f2d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 1.68
+  _rigidbody: {fileID: 2732376926398924108}
 --- !u!114 &2732376926398924096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +316,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upForce: 4
+  _rigidbody: {fileID: 2732376926398924108}
+  _jetpackSmoke: {fileID: 6071607243709338286}
+  _animator: {fileID: 2732376926398924102}
+  _groundCheck: {fileID: 2732376926398924101}
 --- !u!114 &2732376926398924103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,11 +332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d07c9b2bc566264dbfae0eb0951d930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
+  _projectileStaticData: {fileID: 11400000, guid: 68af649aa28b09848a9301428dd6ec30,
+    type: 2}
   _gun: {fileID: 8452306063728472216}
-  _heroProjectilePool: {fileID: 5009032943299516649, guid: b5b2eef6099f4124f97d6948c370aa2a,
-    type: 3}
-  _projectileSprite: {fileID: 21300000, guid: 6a66a9d3b0d99d54a83fdb63ced7cdee, type: 3}
 --- !u!114 &2732376926398924102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19878630ee33744b880ebde722daf08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 2732376926398924097}
 --- !u!114 &2732376926398924101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +363,6 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  _jetpackSmoke: {fileID: 6071607243709338286}
 --- !u!114 &152040130382034454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c879e3b0a9dcf49a1809c57a611a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
 --- !u!114 &370924589189412253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +388,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroHealth: {fileID: 152040130382034454}
+  _heroAnimator: {fileID: 2732376926398924102}
+--- !u!114 &7364104946329466211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732376926398924111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 001529589456bca45938ff365ce9fc49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4108842737778034374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732376926398924111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7aadb83848ad64e811cd803afac3fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5454974600419474476
 GameObject:
   m_ObjectHideFlags: 0

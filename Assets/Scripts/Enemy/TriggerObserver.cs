@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Hero;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Enemy

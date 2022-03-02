@@ -2,16 +2,26 @@
 
 namespace Assets.Scripts.Enemy
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyChase : MonoBehaviour
     {
-        [SerializeField] private float _moveSpeed;
+        public float MoveSpeed { get; set; }
+
         private bool _isChasing;
 
-        [SerializeField] private Transform _target;
-        private Rigidbody2D _rigidbody;
+        [SerializeField] private Rigidbody2D _rigidbody;
+        private Quaternion _lookRight;
+        private Quaternion _lookLeft;
+        private Transform _target;
+   
+        public void Construct(Transform target) => 
+            _target = target;
 
-        private void Awake() => 
-            _rigidbody = GetComponent<Rigidbody2D>();
+        private void Start()
+        {
+            _lookRight = new Quaternion(0, 180, 0, 0);
+            _lookLeft = new Quaternion(0, 0, 0, 0);
+        }
 
         private void Update()
         {
@@ -31,18 +41,18 @@ namespace Assets.Scripts.Enemy
         private void Chasing()
         {
             Vector3 direction = (_target.position - transform.position).normalized;
-            _rigidbody.velocity = new Vector2(direction.x * _moveSpeed, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(direction.x * MoveSpeed, _rigidbody.velocity.y);
         }
 
         private void LookAtTarget()
         {
             if (_target.position.x > transform.position.x)
             {
-                transform.rotation = new Quaternion(0, 180, 0, 0);
+                transform.rotation = _lookRight;
             }
             else
             {
-                transform.rotation = new Quaternion(0, 0, 0, 0);
+                transform.rotation = _lookLeft;
             }
         }
     }

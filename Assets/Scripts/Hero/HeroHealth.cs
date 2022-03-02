@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.GameLogic;
+﻿using Assets.Scripts.Data;
+using Assets.Scripts.GameLogic;
 using System;
 using UnityEngine;
 
@@ -8,28 +9,28 @@ namespace Assets.Scripts.Hero
     {
         public event Action HealthChanged;
 
-        [SerializeField] private float _maxHealth;
-        private float _currentHealth;
-        
         public float CurrentHealth
         {
-            get => _currentHealth;
-            set => _currentHealth = value;
+            get => _playerStats.CurrentHealth;
+            set => _playerStats.CurrentHealth = value;
         }
         public float MaxHealth
         {
-            get => _maxHealth;
-            set => _maxHealth = value;
+            get => _playerStats.MaxHealth;
+            set => _playerStats.MaxHealth = value;
         }
 
-        private void Start()
-        {
-            _currentHealth = _maxHealth;
-        }
+        private PlayerStats _playerStats;
+
+        public void Construct(PlayerStats playerStats) => 
+            _playerStats = playerStats;
+
+        private void Start() => 
+            _playerStats.ResetHp();
 
         public void TakeDamage(float damage)
         {
-            _currentHealth -= damage;
+            CurrentHealth -= damage;
 
             HealthChanged?.Invoke();
         }

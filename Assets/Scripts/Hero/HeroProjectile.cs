@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Enemy;
-using Assets.Scripts.GameLogic.Pool;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic

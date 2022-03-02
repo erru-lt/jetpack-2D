@@ -89,6 +89,8 @@ GameObject:
   - component: {fileID: 7666208861761167984}
   - component: {fileID: 5883949200657102263}
   - component: {fileID: 7767510145337761576}
+  - component: {fileID: 6213785357459847707}
+  - component: {fileID: 6022001873079340968}
   m_Layer: 0
   m_Name: Bomberman
   m_TagString: Untagged
@@ -110,6 +112,7 @@ Transform:
   - {fileID: 4017968531463451261}
   - {fileID: 3469465823442241857}
   - {fileID: 1160611487816782000}
+  - {fileID: 3431989402473884197}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a5208f2948a9f40843c22423866341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
   _patrolTimerMax: 2
+  _rigidbody: {fileID: 4017968530356029769}
 --- !u!114 &5928262667593892526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,8 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986d6d5e96e63b94ca30ea4f84232be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _target: {fileID: 0}
+  _rigidbody: {fileID: 4017968530356029769}
 --- !u!114 &2594289458361542269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,9 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cd558e1c1a6134698d60fda41cb207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerObserver: {fileID: 0}
-  _enemyPatrol: {fileID: 0}
-  _enemyChase: {fileID: 0}
+  _triggerObserver: {fileID: 3902789035994478109}
+  _enemyPatrol: {fileID: 4017968530356029773}
+  _enemyChase: {fileID: 5928262667593892526}
 --- !u!114 &7666208861761167984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14f8206c074e974882c1bc8e1666521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerObserver: {fileID: 0}
+  _triggerObserver: {fileID: 6238395973367634712}
+  _explodePosition: {fileID: 3431989402473884197}
+  _explodeFx: {fileID: -6760119080506359976, guid: 7c5d365c6b926424e91da7cc3d144142,
+    type: 3}
 --- !u!114 &5883949200657102263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d8bf740f57b4e41969739c1e5f44b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 2
 --- !u!114 &7767510145337761576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +315,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHealth: {fileID: 5883949200657102263}
-  _dieFx: {fileID: 257140470626355666, guid: 84b552af3190b0a46877e35df61958cc, type: 3}
+  _deathFx: {fileID: 7063238280508985856, guid: 84b552af3190b0a46877e35df61958cc,
+    type: 3}
+--- !u!114 &6213785357459847707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017968530356029771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9235487e47997488fb7bcc6f6ca812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 4017968530356029769}
+  _spriteRenderer: {fileID: 4017968530356029775}
+  _enemyHealth: {fileID: 5883949200657102263}
+  _hitColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
+--- !u!114 &6022001873079340968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017968530356029771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cba82788afae6488bf59a5529a2b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 4017968530356029770}
 --- !u!1 &4017968531463451262
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +393,36 @@ CircleCollider2D:
   m_Offset: {x: 0.055354476, y: -0.27}
   serializedVersion: 2
   m_Radius: 0.15680254
+--- !u!1 &6862751932419225521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3431989402473884197}
+  m_Layer: 0
+  m_Name: ExplodePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3431989402473884197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862751932419225521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.07, y: 0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4017968530356029774}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7232415098425639026
 GameObject:
   m_ObjectHideFlags: 0

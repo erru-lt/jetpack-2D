@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Enemy;
-using Assets.Scripts.GameLogic.Pool;
+﻿using Assets.Scripts.GameLogic.Pool;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic
@@ -7,25 +6,21 @@ namespace Assets.Scripts.GameLogic
     [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
     public class ProjectileBase : MonoBehaviour
     {
-        [SerializeField] protected float _damage;
+        protected float _damage;
         [SerializeField] private float _bulletForce;
+
         [SerializeField] private float _lifetimeDurationMax;
         private float _lifetimeDuration;
 
+        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+
         protected ProjectilePoolBase _projectilePool;
-        private Rigidbody2D _rigidbody;
-        private SpriteRenderer _spriteRenderer;
 
         public void Construct(ProjectilePoolBase projectilePool, float damage)
         {
             _projectilePool = projectilePool;
             _damage = damage;
-        }
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Update() =>
@@ -63,6 +58,5 @@ namespace Assets.Scripts.GameLogic
 
         private void RemoveSprite() =>
             _spriteRenderer.sprite = null;
-
     }
 }

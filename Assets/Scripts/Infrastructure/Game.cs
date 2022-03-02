@@ -1,10 +1,12 @@
-﻿using Assets.Scripts.Infrastructure;
-using Assets.Scripts.Infrastructure.States;
+﻿using Assets.Scripts.Infrastructure.States;
 
-public class Game
+namespace Assets.Scripts.Infrastructure
 {
-    public GameStateMachine GameStateMachine;
+    public class Game
+    {
+        public GameStateMachine GameStateMachine;
 
-    public Game(ICoroutineRunner coroutineRunner) =>
-        GameStateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), AllServices.Container);
+        public Game(ICoroutineRunner coroutineRunner) =>
+            GameStateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), AllServices.Container);
+    }
 }

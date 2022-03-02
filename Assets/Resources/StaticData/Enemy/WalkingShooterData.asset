@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3335c4a44a0e1434788de8d1c8abce9d, type: 3}
+  m_Name: WalkingShooterData
+  m_EditorClassIdentifier: 
+  enemyTypeID: 0
+  Damage: 1.95
+  Health: 4.47
+  MoveSpeed: 1.507
+  ProjectileSprite: {fileID: 21300000, guid: e4d98e1aa9efbef478be479f34bfe771, type: 3}
+  Prefab: {fileID: 8247958290233487520, guid: cd674b2dd3ae7c246baee711652f0720, type: 3}

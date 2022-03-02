@@ -1,17 +1,27 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Data;
+using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class HeroMove : MonoBehaviour
+namespace Assets.Scripts.Hero
 {
-    [SerializeField] private float _moveSpeed;
-    private Rigidbody2D _rigidbody;
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class HeroMove : MonoBehaviour
+    {
+        public float MoveSpeed
+        {
+            get => _playerStats.MoveSpeed;
+            set => _playerStats.MoveSpeed = value;
+        }
 
-    private void Awake() => 
-        _rigidbody = GetComponent<Rigidbody2D>();
+        [SerializeField] private Rigidbody2D _rigidbody;
+        private PlayerStats _playerStats;
 
-    private void FixedUpdate() => 
-        Move();
+        public void Construct(PlayerStats playerStats) =>
+            _playerStats = playerStats;
 
-    private void Move() => 
-        _rigidbody.velocity = new Vector2(_moveSpeed, _rigidbody.velocity.y);
+        private void FixedUpdate() =>
+            Move();
+
+        private void Move() =>
+            _rigidbody.velocity = new Vector2(MoveSpeed, _rigidbody.velocity.y);
+    }
 }

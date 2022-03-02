@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI.Factory;
+using UnityEngine;
 
 namespace Assets.Scripts.Hero
 {
@@ -6,23 +7,34 @@ namespace Assets.Scripts.Hero
     public class HeroDeath : MonoBehaviour
     { 
         [SerializeField] private HeroHealth _heroHealth;
+        [SerializeField] private HeroAnimator _heroAnimator;
 
-        private void Start()
-        {
+        private IUIFactory _uiFactory;
+
+        public void Construct(IUIFactory uiFactory) => 
+            _uiFactory = uiFactory;
+
+        private void Start() => 
             _heroHealth.HealthChanged += OnHealthChanged;
-        }
 
         private void OnHealthChanged()
         {
             if(_heroHealth.CurrentHealth <= 0)
             {
-                Die();
+                DieAnimation();
             }
         }
 
-        private void Die()
+        private void OnDieAnimationEnd()
         {
-            Destroy(gameObject);
+            Die();
+            _uiFactory.CreateGameOverWindow();
         }
+
+        private void Die() => 
+            Destroy(gameObject);
+
+        private void DieAnimation() => 
+            _heroAnimator.PlayDie();
     }
 }

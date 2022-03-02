@@ -7,16 +7,22 @@ namespace Assets.Scripts.Enemy
     [RequireComponent(typeof(EnemyAnimator))]
     public class EnemyShoot : MonoBehaviour
     {
+        public float Damage { get; set; }
+
         [SerializeField] private float _shootCooldownMax;
         private float _shootCooldown;
         private bool _isShooting;
-        private float _damage = 2.0f;
 
         [SerializeField] private Transform _gun;
         [SerializeField] private EnemyAnimator _enemyAnimator;
-        [SerializeField] private EnemyProjectilePool _enemyProjectilePool;
-        [SerializeField] private Sprite _projectileSprite;
+        private EnemyProjectilePool _enemyProjectilePool;
+        private Sprite _projectileSprite;
 
+        public void Construct(EnemyProjectilePool enemyProjectilePool, Sprite projectileSprite)
+        {
+            _enemyProjectilePool = enemyProjectilePool;
+            _projectileSprite = projectileSprite;
+        }
 
         private void Update()
         {
@@ -52,7 +58,7 @@ namespace Assets.Scripts.Enemy
         {
             ProjectileBase projectile = _enemyProjectilePool.TakeProjectileFromPool();
             projectile.transform.position = _gun.position;
-            projectile.Construct(_enemyProjectilePool, _damage);
+            projectile.Construct(_enemyProjectilePool, Damage);
             projectile.AddForce(-transform.right);
             projectile.AddSprite(_projectileSprite);
         }

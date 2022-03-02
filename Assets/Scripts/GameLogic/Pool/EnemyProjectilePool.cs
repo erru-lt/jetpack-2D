@@ -1,5 +1,4 @@
-﻿
-namespace Assets.Scripts.GameLogic.Pool
+﻿namespace Assets.Scripts.GameLogic.Pool
 {
     public class EnemyProjectilePool : ProjectilePoolBase
     {

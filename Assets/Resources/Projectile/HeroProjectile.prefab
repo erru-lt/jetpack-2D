@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 0.5}
+  m_Size: {x: 1.171875, y: 0.1953125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletForce: 30
-  _lifetimeDurationMax: 4
-  _damage: 2
-  _projectilePool: {fileID: 0}
+  _lifetimeDurationMax: 0.3
+  _rigidbody: {fileID: 614743566402873420}
+  _spriteRenderer: {fileID: 5612668840126855047}

@@ -8,15 +8,14 @@ namespace Assets.Scripts.Enemy
     {
         public event Action HealthChanged;
 
-        [SerializeField] private float _maxHealth;
-        private float _currentHealth = 9.0f;
+        private float _maxHealth;
+        private float _currentHealth;
 
         public float CurrentHealth
         {
             get => _currentHealth;
             set => _currentHealth = value;
         }
-
         public float MaxHealth
         {
             get => _maxHealth;
@@ -26,7 +25,7 @@ namespace Assets.Scripts.Enemy
         public void TakeDamage(float damage)
         {
             _currentHealth -= damage;
-
+            
             HealthChanged?.Invoke();
         }
     }

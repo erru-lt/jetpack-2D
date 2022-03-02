@@ -1,26 +1,50 @@
 ﻿using Assets.Scripts.GameLogic;
 using Assets.Scripts.GameLogic.Pool;
 using Assets.Scripts.Infrastructure.Services.InputService;
+using Assets.Scripts.Infrastructure.Services.ProgressService;
+using Assets.Scripts.StaticData.Projectile;
 using UnityEngine;
 
 namespace Assets.Scripts.Hero
 {
     public class HeroAttack : MonoBehaviour
     {
-        [SerializeField] private float _damage;
-
+        private float _damage;
+       
+        [SerializeField] private ProjectileStaticData _projectileStaticData;
         [SerializeField] private Transform _gun;
-        [SerializeField] private HeroProjectilePool _heroProjectilePool;
-        [SerializeField] private Sprite _projectileSprite;
+
+        private Sprite _projectileSprite;
+        private HeroProjectilePool _heroProjectilePool;
 
         private IInputService _inputService;
-
-        private void Awake() =>
-            _inputService = AllServices.Container.Service<IInputService>();
-
-        private void Update()
+        private IProgressService _progressService;
+        
+        public void Construct(IInputService inputService, HeroProjectilePool heroProjectilePool, IProgressService progressService)
         {
+            _inputService = inputService;
+            _heroProjectilePool = heroProjectilePool;       
+            _progressService = progressService;
+        }
+
+        private void Start() => 
+            AddStats();
+
+        private void Update() => 
             Shoot();
+
+        public void AddStats()
+        {
+            if (_progressService.PlayerProgress.PlayerStats.AttackStatsIsEmpty())
+            {
+                _damage = _projectileStaticData.Damage;
+                _projectileSprite = _projectileStaticData.ProjectileSprite;
+            }
+            else
+            {
+                _damage = _progressService.PlayerProgress.PlayerStats.Damage;
+                _projectileSprite = _progressService.PlayerProgress.PlayerStats.ProjectileSprite;
+            }
         }
 
         private void Shoot()
@@ -37,7 +61,7 @@ namespace Assets.Scripts.Hero
             projectile.transform.position = _gun.position;
             projectile.Construct(_heroProjectilePool, _damage);
             projectile.AddForce(transform.right);
-            projectile.AddSprite(_projectileSprite);
+            projectile.AddSprite(_projectileSprite);           
         }
     }
 }

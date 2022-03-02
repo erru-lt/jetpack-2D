@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Enemy
 {
+    [RequireComponent(typeof(EnemyPatrol), typeof(EnemyChase))]
     public class CheckChaseRange : MonoBehaviour
     {
         [SerializeField] private TriggerObserver _triggerObserver;
@@ -13,6 +14,12 @@ namespace Assets.Scripts.Enemy
         {
             _triggerObserver.TriggerEnter += StartChase;
             _triggerObserver.TriggerExit += StopChase;
+        }
+
+        private void OnDestroy()
+        {
+            _triggerObserver.TriggerEnter -= StartChase;
+            _triggerObserver.TriggerExit -= StopChase;
         }
 
         private void StartChase()

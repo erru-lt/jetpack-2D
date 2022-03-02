@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 2039775857425691085}
   - component: {fileID: 2039775857425691084}
   - component: {fileID: 2039775857425691087}
+  - component: {fileID: -5774491058378447305}
+  - component: {fileID: 5713827356154029670}
+  - component: {fileID: 3519902320609240792}
+  - component: {fileID: 1622974758140709181}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -73,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: cf70fff83824fe1429cdb99e8b04ddbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,7 +99,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 39ef64b4e8bfe284187500b9834acad5, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -163,4 +167,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3afb8dfff228114ba6e9e4af0840df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 1.96
+  _rigidbody: {fileID: 2039775857425691085}
+--- !u!114 &-5774491058378447305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039775857425691081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a093f609ed5e4e14897d9990e22a3498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explodeFx: {fileID: -6760119080506359976, guid: 7c5d365c6b926424e91da7cc3d144142,
+    type: 3}
+--- !u!114 &5713827356154029670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039775857425691081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cba82788afae6488bf59a5529a2b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2039775857425691084}
+--- !u!114 &3519902320609240792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039775857425691081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d8bf740f57b4e41969739c1e5f44b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1622974758140709181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039775857425691081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a31700c8a0839f468c8658782f8c4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyHealth: {fileID: 3519902320609240792}
+  _deathFx: {fileID: -6760119080506359976, guid: 7c5d365c6b926424e91da7cc3d144142,
+    type: 3}

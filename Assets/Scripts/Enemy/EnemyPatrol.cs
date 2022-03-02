@@ -5,24 +5,22 @@ namespace Assets.Enemy
     [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyPatrol : MonoBehaviour
     {
-        [SerializeField] private float _speed;
+        public float Speed { get; set; }
+
         private float _moveSpeed;
 
         [SerializeField] private float _patrolTimerMax;
         private float _patrolTimer;
         private bool _isPatroling;
 
+        [SerializeField] private Rigidbody2D _rigidbody;
         private Quaternion _rotation;
-        private Rigidbody2D _rigidbody;
-
-        private void Awake() => 
-            _rigidbody = GetComponent<Rigidbody2D>();
 
         private void Start()
         {
             EnablePatrol();
             ResetTimer();
-            ChangeDirection(-_speed);
+            ChangeDirection(-Speed);
             _rotation = transform.rotation;            
         }
 
@@ -59,12 +57,12 @@ namespace Assets.Enemy
             if(transform.rotation == _rotation)
             {
                 transform.rotation = new Quaternion(0, 180, 0, 0);
-                ChangeDirection(_speed);
+                ChangeDirection(Speed);
             }
             else
             {
                 transform.rotation = _rotation;
-                ChangeDirection(-_speed);
+                ChangeDirection(-Speed);
             }
         }
 

@@ -2,14 +2,12 @@
 
 namespace Assets.Scripts.Enemy
 {
+    [RequireComponent(typeof(Animator))]
     public class EnemyAnimator : MonoBehaviour
     {
         private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
 
-        private Animator _animator;
-
-        private void Awake() => 
-            _animator = GetComponent<Animator>();
+        [SerializeField] private Animator _animator;
 
         public void PlayIdle() => 
             _animator.SetBool(IsAttackingHash, true);

@@ -7,6 +7,8 @@ namespace Assets.Scripts.Infrastructure.States
 {
     public class LoadProgressState : IState
     {
+        private const string SceneToLoad = "MainMenu";
+
         private readonly GameStateMachine _gameStateMachine;
         private readonly IProgressService _progressService;
         private readonly ISaveLoadService _saveLoadService;
@@ -21,25 +23,35 @@ namespace Assets.Scripts.Infrastructure.States
         public void Enter()
         {
             LoadProgressOrInitNew();
-            _gameStateMachine.Enter<MainMenuState>();
-        }
-
-        public void Exit()
-        {
-            
+            _gameStateMachine.Enter<MainMenuState, string>(SceneToLoad);
         }
 
         private void LoadProgressOrInitNew()
         {
             _progressService.PlayerProgress = _saveLoadService.Load() ?? InitNewProgress();
+            _progressService.PlayerProgress.PlayerLoot.ResetCurrentLevelCoins();
         }
 
         private PlayerProgress InitNewProgress()
         {
             PlayerProgress playerProgress = new PlayerProgress();
+            InitializeNewStats(playerProgress);
 
-            playerProgress.LevelProgress.LevelAt = 1;
             return playerProgress;
+        }
+
+        private void InitializeNewStats(PlayerProgress playerProgress)
+        {
+            playerProgress.LevelProgress.LevelAt = InitialStats._startLevelIndex;
+            playerProgress.PlayerStats.MaxHealth = InitialStats._maxHeroHealth;
+            playerProgress.PlayerStats.IncreasedMoveSpeed = InitialStats._increasedMoveSpeed;
+            playerProgress.PlayerStats.RegularMoveSpeed = InitialStats._heroMoveSpeed;
+            playerProgress.PlayerStats.MoveSpeed = playerProgress.PlayerStats.RegularMoveSpeed;
+        }
+
+        public void Exit()
+        {
+
         }
     }
 }

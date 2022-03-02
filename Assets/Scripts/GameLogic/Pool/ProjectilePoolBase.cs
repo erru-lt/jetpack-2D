@@ -28,10 +28,8 @@ namespace Assets.Scripts.GameLogic.Pool
             }
         }
 
-        public void ReturnProjectileToPool(ProjectileBase projectile)
-        {
+        public void ReturnProjectileToPool(ProjectileBase projectile) => 
             EnqueueProjectile(projectile);
-        }
 
         private ProjectileBase CreateProjectile() =>
             Instantiate(_projectilePrefab);

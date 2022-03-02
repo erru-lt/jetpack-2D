@@ -1,26 +1,31 @@
 ﻿using Assets.Scripts.Infrastructure.States.Interfaces;
+using Assets.Scripts.UI.Factory;
 
 namespace Assets.Scripts.Infrastructure.States
 {
-    public class MainMenuState : IState
+    public class MainMenuState : IPayloadState<string>
     {
-        private GameStateMachine _gameStateMachine;
         private SceneLoader _sceneLoader;
+        private IUIFactory _uiFactory;
 
-        public MainMenuState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
+        public MainMenuState(SceneLoader sceneLoader, IUIFactory uiFactory)
         {
-            _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
+            _uiFactory = uiFactory;
         }
 
-        public void Enter()
+        public void Enter(string sceneName) => 
+            _sceneLoader.Load(sceneName, OnLoaded);
+
+        private void OnLoaded()
         {
-            _sceneLoader.Load("Level1");
+            _uiFactory.CreateUIRoot();
+            _uiFactory.CreateMainMenuWindow();
         }
 
         public void Exit()
         {
-            
+
         }
     }
 }
