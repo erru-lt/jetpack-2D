@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cdd8f1f5b8596a4db8a6225a13dc3a9, type: 3}
   m_Name: BombData
   m_EditorClassIdentifier: 
-  ProjectileImage: {fileID: 21300000, guid: 80de5bf0b15870949951d53687cca21f, type: 3}
+  UIProjectileImage: {fileID: 21300000, guid: 80de5bf0b15870949951d53687cca21f, type: 3}
   ProjectileSprite: {fileID: 21300000, guid: 76df185db365bdd43b1aeea96516114a, type: 3}
   Damage: 4
   Speed: 1
-  Price: 100
   IsPurchased: 0

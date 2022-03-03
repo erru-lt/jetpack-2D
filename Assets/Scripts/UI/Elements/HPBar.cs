@@ -7,7 +7,12 @@ namespace Assets.Scripts.UI.Elements
     {
         [SerializeField] private Image _hpImage;
 
-        public void SetValue(float currentHealth, float maxHealth) => 
-            _hpImage.fillAmount = currentHealth / maxHealth;
+        public void SetValue(float currentHealth, float maxHealth)
+        {
+            if (_hpImage != null)
+            {
+                _hpImage.fillAmount = currentHealth / maxHealth;
+            }
+        }
     }
 }

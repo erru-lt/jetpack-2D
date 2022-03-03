@@ -13,9 +13,53 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   LevelName: 5
-  CoinsPicked: 0
+  CoinsPicked: 16
   MinCointAmount: 0
-  MaxCointAmount: 0
-  HeroInitialPoint: {x: -8.98, y: -1.75, z: 0}
-  LevelTransiotionPoint: {x: 2.62, y: 2.14, z: 0}
-  Spawners: []
+  MaxCointAmount: 24
+  HeroInitialPoint: {x: -16, y: -7.1, z: 0}
+  LevelTransiotionPoint: {x: 156.3, y: -6.9, z: 0}
+  Spawners:
+  - EnemyTypeID: 1
+    Position: {x: 148.6, y: -7.1, z: 0}
+  - EnemyTypeID: 1
+    Position: {x: 52.3, y: -5.7, z: 0}
+  - EnemyTypeID: 1
+    Position: {x: 122.1, y: -6.3, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 85.9, y: -3, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 65.3, y: -7.1, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 3.6, y: -7.1, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 19.6, y: -7.2, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 40.2, y: -7.1, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 85.08, y: -0.19, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 96.53, y: -5.65, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 124.12, y: -1.77, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 145.1, y: -7, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 125, y: 1.8, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 104.5, y: -5.8, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 94.2, y: -1.5, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 20.54, y: -2.21, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 61.64, y: 0, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 69.51, y: -3.21, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 36.76, y: -4.92, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 43.74, y: -1.77, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 33.1, y: 1.55, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 53.07, y: -4.01, z: 0}

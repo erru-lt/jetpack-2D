@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab84a21c47ecae44b5c91adc0a57103, type: 3}
+  m_Name: Level3
+  m_EditorClassIdentifier: 
+  LevelName: 6
+  CoinsPicked: 20
+  MinCointAmount: 0
+  MaxCointAmount: 24
+  HeroInitialPoint: {x: -13.4, y: -6.9, z: 0}
+  LevelTransiotionPoint: {x: 154, y: -6.6, z: 0}
+  Spawners:
+  - EnemyTypeID: 1
+    Position: {x: 146.88, y: -6.78, z: 0}
+  - EnemyTypeID: 1
+    Position: {x: 129.82, y: -2.18, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 134.24, y: -7.04, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 124.7, y: -7.04, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 111, y: -7.04, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 95.36, y: -7.04, z: 0}
+  - EnemyTypeID: 0
+    Position: {x: 44.9, y: -7.04, z: 0}
+  - EnemyTypeID: 1
+    Position: {x: 2.3, y: -7.3, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 180.5, y: -7.02, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 170.82, y: 1.58, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 170.82, y: -2.38, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 151.07, y: -2.38, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 138.33, y: 0.67, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 138.33, y: -7.06, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 121.13, y: -7.06, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 112.81, y: 3.7, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 95.85, y: 0.41, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 92.35, y: -6, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 80.85, y: 1.47, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 65.61, y: -6.42, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 58.14, y: -2.68, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 41.06, y: -2.68, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 29.98, y: -0.73, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 44.44, y: -6.3, z: 0}
+  - EnemyTypeID: 2
+    Position: {x: 19.81, y: -4.07, z: 0}

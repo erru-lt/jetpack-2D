@@ -25,8 +25,11 @@ namespace Assets.Scripts.Hero
         public void Construct(PlayerStats playerStats) => 
             _playerStats = playerStats;
 
-        private void Start() => 
+        private void Start()
+        {
             _playerStats.ResetHp();
+            Debug.Log(CurrentHealth);
+        }
 
         public void TakeDamage(float damage)
         {
