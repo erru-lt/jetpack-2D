@@ -28,12 +28,12 @@ namespace Assets.Scripts.Hero
         }
 
         private void Start() => 
-            AddStats();
+            AddAttackStats();
 
         private void Update() => 
             Shoot();
 
-        public void AddStats()
+        public void AddAttackStats()
         {
             if (_progressService.PlayerProgress.PlayerStats.AttackStatsIsEmpty())
             {
